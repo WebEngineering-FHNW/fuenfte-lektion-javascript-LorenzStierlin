@@ -10,8 +10,14 @@
 <%@ page import="static mvc.FieldUtil.*" %>
 
 <script language="javascript">
-	function showAlert(inputField) {
-		alert(inputField.name + ' value needs to be at least 1.0');
+	function handleWrongInput(inputField) {
+		if(inputField.value  < 1.0 ){
+			alert(inputField.name + ' value needs to be at least 1.0');
+			inputField.setAttribute('class', 'error');
+			inputField.focus();
+		} else {
+			inputField.setAttribute('class', '');
+		}
 	}
 </script>
 
@@ -21,6 +27,6 @@
          required="true" min="1.0" max="6.0" id="${name}"
          class="${hasError(model, name) ? 'error' : ''}"
          title="${g.message(error: findError(model, name)) }"
-         onchange="showAlert(this);"
+         onchange="handleWrongInput(this);"
   />
 </div>

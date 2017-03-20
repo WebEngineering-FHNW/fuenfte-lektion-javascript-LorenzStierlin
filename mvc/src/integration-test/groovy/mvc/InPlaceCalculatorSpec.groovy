@@ -59,9 +59,9 @@ class InPlaceCalculatorSpec extends GebSpec {
                 $("form").en = 0.9
             }
         then: "the in-place JS logic should kick in"
-//            $("#en").attr('class') == "error"
-//            message == "en value needs to be at least 1.0"
-//            $("#en").focused
+            $("#en").attr('class') == "error"
+            message == "en value needs to be at least 1.0"
+            $("#en").focused
     }
 
 
